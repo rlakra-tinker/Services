@@ -47,7 +47,7 @@ class WebApp:
         The first argument, "webapp", is the name of your blueprint and identifies this blueprint in your Flask project.
         The second argument is the blueprint’s '__name__' and used later when you import api into' webapp.py'.
         """
-        bp = Blueprint("ecommerce", __name__, url_prefix="/ecommerce-iws")
+        bp = Blueprint("ecommerce", __name__, url_prefix="/ecommerce-ews")
 
         # register more app's here.
         bp.register_blueprint(webapp_bp)
@@ -66,7 +66,7 @@ class WebApp:
         """
         # localhost
         host = os.getenv("APP_HOST", "0.0.0.0")
-        port = int(os.getenv("APP_PORT", 8081))
+        port = int(os.getenv("APP_PORT", 8080))
         debug = bool(os.getenv("DEBUG_ENABLED", True))
 
         # run application with params

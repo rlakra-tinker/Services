@@ -1,9 +1,8 @@
-# ecommerce Backend Service
+# ewebapp external web service
 
 ---
 
-The ```ecommerce``` represents an internal web service.
-
+The ```ewebapp``` represents an external webapp service.
 
 ## Folder Structure Conventions
 
@@ -12,7 +11,7 @@ The ```ecommerce``` represents an internal web service.
 ```
     /
     ├── modules                     # The name of the module
-    ├── ecommerce                   # The ecommerce-ews external module/service
+    ├── ewebapp                     # The ecommerce-ews external module/service
     |    ├── api                    # The API of the client
     |    ├── blueprints             # The routes of the views
     |    ├── models                 # contains the definition of the application’s models.
@@ -64,7 +63,7 @@ python3 -m venv venv
   
   OR
   
-    . ./venv/bin/activate  
+    . ./venv/bin/activate
     ```
 
 The parenthesized (venv) in front of the prompt indicates that you’ve successfully activated the virtual environment.
@@ -113,7 +112,7 @@ Now, update the default local configurations as follows:
 
 ```text
 APP_HOST = 0.0.0.0
-APP_PORT = 8081
+APP_PORT = 8080
 ```
 
 **By default**, Flask will run the application on **port 5000**.
@@ -121,7 +120,7 @@ APP_PORT = 8081
 ## Run Flask Application
 
 ```shell
-python -m flask --app webapp run --port 8081 --debug
+python -m flask --app webapp run --port 8080 --debug
 ```
 
 **Note**:- You can stop the development server by pressing ```Ctrl+C``` in your terminal.
@@ -129,7 +128,7 @@ python -m flask --app webapp run --port 8081 --debug
 
 ## Access Application
 ```shell
-http://localhost:8081/ecommerce-iws
+http://localhost:8080/ecommerce-ews
 ```
 
 

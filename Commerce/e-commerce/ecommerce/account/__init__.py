@@ -44,8 +44,8 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/accounts")
-# bp = Blueprint("accounts", __name__, url_prefix="/accounts")
+# bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/accounts")
+bp = Blueprint("accounts", __name__, url_prefix="/accounts")
 
 
 # accounts home page
@@ -54,7 +54,7 @@ def index():
     """
     Services Page
     """
-    return render_template("accounts.html")
+    return render_template("account/index.html")
 
 
 # register a new account
@@ -63,7 +63,7 @@ def register():
     """
     register a new account
     """
-    return render_template("register.html")
+    return render_template("account/register.html")
 
 
 # login to an account
@@ -72,7 +72,7 @@ def login():
     """
     login to an account
     """
-    return render_template("login.html")
+    return render_template("account/login.html")
 
 
 # view profile
@@ -81,7 +81,7 @@ def clients():
     """
     view profile
     """
-    return render_template("profile.html")
+    return render_template("account/profile.html")
 
 
 # forgot-password
@@ -90,7 +90,7 @@ def forgot_password():
     """
     forgot-password
     """
-    return render_template("forgot-password.html")
+    return render_template("account/forgot-password.html")
 
 
 # Logout Page
@@ -99,4 +99,4 @@ def logout():
     """
     About Us Page
     """
-    return render_template("index.html")
+    return render_template("account/index.html")

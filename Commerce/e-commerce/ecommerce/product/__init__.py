@@ -44,8 +44,8 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("products", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/products")
-
+# bp = Blueprint("products", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/products")
+bp = Blueprint("products", __name__, url_prefix="/products")
 
 # list of products
 @bp.route("/")
@@ -53,7 +53,7 @@ def index():
     """
     list of products
     """
-    return render_template("products.html")
+    return render_template("product/index.html")
 
 
 # search product
@@ -62,7 +62,7 @@ def search():
     """
     search product
     """
-    return render_template("search.html")
+    return render_template("product/search.html")
 
 
 # edit/view product
@@ -71,4 +71,4 @@ def view():
     """
     edit/view product
     """
-    return render_template("view.html")
+    return render_template("product/view.html")

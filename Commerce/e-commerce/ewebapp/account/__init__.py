@@ -2,9 +2,7 @@
 # Author: Rohtash Lakra
 # Reference - https://realpython.com/flask-blueprint/
 #
-from flask import Blueprint, make_response, jsonify, render_template
-
-
+from flask import Blueprint, render_template, make_response, jsonify
 
 """
 Making a Flask Blueprint:
@@ -46,22 +44,59 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-# bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
-bp = Blueprint("cart", __name__, url_prefix="/cart")
+bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/accounts")
+# bp = Blueprint("accounts", __name__, url_prefix="/accounts")
+
+
+# accounts home page
+@bp.route("/", methods=['GET'])
+def index():
+    """
+    Services Page
+    """
+    return render_template("accounts.html")
+
 
 # register a new account
-@bp.route("/")
-def index():
+@bp.route("/register")
+def register():
     """
     register a new account
     """
-    return render_template("cart/index.html")
+    return render_template("register.html")
 
 
 # login to an account
-@bp.route("/checkout")
-def checkout():
+@bp.route("/login")
+def login():
     """
     login to an account
     """
-    return render_template("cart/checkout.html")
+    return render_template("login.html")
+
+
+# view profile
+@bp.route("/profile")
+def clients():
+    """
+    view profile
+    """
+    return render_template("profile.html")
+
+
+# forgot-password
+@bp.route("/forgot-password")
+def forgot_password():
+    """
+    forgot-password
+    """
+    return render_template("forgot-password.html")
+
+
+# Logout Page
+@bp.route("/logout")
+def logout():
+    """
+    About Us Page
+    """
+    return render_template("index.html")

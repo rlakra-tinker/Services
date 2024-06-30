@@ -46,8 +46,8 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("admin", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/admin")
-
+# bp = Blueprint("admin", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/admin")
+bp = Blueprint("admin", __name__)
 
 # register a new account
 @bp.route("/")
@@ -55,43 +55,43 @@ def index():
     """
     register a new account
     """
-    return render_template("admin.html")
+    return render_template("admin/index.html")
 
 
 # login to an account
-@bp.route("/login-us")
+@bp.route("/login")
 def login():
     """
     login to an account
     """
-    return render_template("login.html")
+    return render_template("admin/login.html")
 
 
 # list of accounts
-@bp.route("/list")
-def list():
+@bp.route("/profile")
+def profile():
     """
     Services Page
     """
-    return render_template("list.html")
+    return render_template("admin/profile.html")
 
 
 # Clients Page
-@bp.route("/clients")
-def clients():
+@bp.route("/register")
+def register():
     """
     Clients Page
     """
-    return render_template("clients.html")
+    return render_template("admin/register.html")
 
 
 # Contact Us Page
-@bp.route("/contact-us")
+@bp.route("/forgot-password")
 def contact():
     """
     About Us Page
     """
-    return render_template("contact.html")
+    return render_template("admin/forgot-password.html")
 
 
 # Logout Page
@@ -100,4 +100,4 @@ def logout():
     """
     About Us Page
     """
-    return render_template("logout.html")
+    return render_template("admin/logout.html")

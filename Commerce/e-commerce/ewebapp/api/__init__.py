@@ -2,9 +2,8 @@
 # Author: Rohtash Lakra
 # Reference - https://realpython.com/flask-blueprint/
 #
-from flask import Blueprint, make_response, jsonify, render_template
-
-
+from flask import Blueprint
+from .v1 import bp as bp_v1
 
 """
 Making a Flask Blueprint:
@@ -46,22 +45,7 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-# bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
-bp = Blueprint("cart", __name__, url_prefix="/cart")
+bp = Blueprint("api", __name__, url_prefix="/api")
 
-# register a new account
-@bp.route("/")
-def index():
-    """
-    register a new account
-    """
-    return render_template("cart/index.html")
-
-
-# login to an account
-@bp.route("/checkout")
-def checkout():
-    """
-    login to an account
-    """
-    return render_template("cart/checkout.html")
+# register version paths here
+bp.register_blueprint(bp_v1)

@@ -4,8 +4,6 @@
 #
 from flask import Blueprint, make_response, jsonify, render_template
 
-
-
 """
 Making a Flask Blueprint:
 
@@ -46,22 +44,31 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-# bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
-bp = Blueprint("cart", __name__, url_prefix="/cart")
+bp = Blueprint("products", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/products")
 
-# register a new account
+
+# list of products
 @bp.route("/")
 def index():
     """
-    register a new account
+    list of products
     """
-    return render_template("cart/index.html")
+    return render_template("products.html")
 
 
-# login to an account
-@bp.route("/checkout")
-def checkout():
+# search product
+@bp.route("/search")
+def search():
     """
-    login to an account
+    search product
     """
-    return render_template("cart/checkout.html")
+    return render_template("search.html")
+
+
+# edit/view product
+@bp.route("/view")
+def view():
+    """
+    edit/view product
+    """
+    return render_template("view.html")

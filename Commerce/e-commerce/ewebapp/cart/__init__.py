@@ -46,8 +46,8 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-# bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
-bp = Blueprint("cart", __name__, url_prefix="/cart")
+bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
+
 
 # register a new account
 @bp.route("/")
@@ -55,7 +55,7 @@ def index():
     """
     register a new account
     """
-    return render_template("cart/index.html")
+    return render_template("cart.html")
 
 
 # login to an account
@@ -64,4 +64,4 @@ def checkout():
     """
     login to an account
     """
-    return render_template("cart/checkout.html")
+    return render_template("checkout.html")
