@@ -10,22 +10,33 @@ The ```ewebapp``` represents an external webapp service.
 
 ```
     /
-    ├── modules                     # The name of the module
-    ├── ewebapp                     # The ecommerce-ews external module/service
-    |    ├── api                    # The API of the client
-    |    ├── blueprints             # The routes of the views
-    |    ├── models                 # contains the definition of the application’s models.
-    |    ├── static                 # contains the application’s static files.
-    |    |    ├── css               # css files
-    |    |    ├── images            # image files
-    |    |    ├── js                # JavaScript files
-    |    ├── templates              # contains the application’s templates.
-    |    |    ├── views             # The HTML views/pages
-    |    ├── config.py              # contains the application configuration parameters.
-    |    ├── models.py              # contains the definition of the application’s models.
-    |    ├── webapp              # contains the web application logic.
-    |    └── README.md              # The README file of ews module
-    └── README.md
+    ├── ewebapp                       # The ecommerce-ews external module/service
+    |    ├── account                  # an account’s rest service.
+    |    |    ├── static              # contains the application’s static files.
+    |    |    |    ├── css            # module specific css files
+    |    |    |    ├── images         # module specific image files
+    |    |    |    ├── js             # module specific JavaScript files
+    |    |    ├── templates           # contains the module’s templates.
+    |    |    |    ├── account.html   # contains the module web views.
+    |    |    ├── __init__.py         # contains the definition of the module's routes.
+    |    ├── admin                    # an admin’s rest service.
+    |    ├── api                      # The API service
+    |    ├── cart                     # The HTML views/pages of accounts
+    |    ├── models                   # contains the definition of the application’s models.
+    |    ├── webapp                   # contains the definition of the application’s models.
+    |    |    ├── static              # contains the application’s static files.
+    |    |    |    ├── css            # contains the application's css files
+    |    |    |    ├── images         # contains the application's image files
+    |    |    |    ├── js             # contains the application's JavaScript files
+    |    |    ├── templates           # contains the application’s templates.
+    |    |    |    ├── fragments      # contains the reusable fragments of web views.
+    |    |    ├── __init__.py         # contains the main application logic.
+    |    |    ├── app.py              # contains the web application logic.
+    |    |    ├── routes.py           # contains the definition of the web’s routes.
+    |    ├── __init__.py              # contains the main application logic.
+    |    ├── config.py                # contains the application configuration parameters.
+    |    └── README.md                # The README file of ews module
+    └── README.md    
 ```
 
 
@@ -120,7 +131,7 @@ APP_PORT = 8080
 ## Run Flask Application
 
 ```shell
-python -m flask --app webapp run --port 8080 --debug
+$(venv)python -m flask --app webapp run --port 8080 --debug
 ```
 
 **Note**:- You can stop the development server by pressing ```Ctrl+C``` in your terminal.

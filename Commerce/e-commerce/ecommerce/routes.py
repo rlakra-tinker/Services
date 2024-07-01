@@ -37,7 +37,7 @@ def index():
     """
     Index Page
     """
-    return render_template("/index.html")
+    return render_template("index.html")
 
 
 # About Page

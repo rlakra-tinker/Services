@@ -6,8 +6,8 @@ import os
 from flask import Flask, Blueprint
 from pathlib import Path
 
-from ecommerce.webapp.routes import bp as webapp_bp
-from ecommerce.api import bp as api_bp
+from .routes import bp as webapp_bp
+from .api import bp as api_bp
 
 """
 Create WebApp class

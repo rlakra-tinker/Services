@@ -45,7 +45,7 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("api", __name__, url_prefix="/api")
+bp = Blueprint("rest", __name__, url_prefix="/rest")
 
 # register version paths here
 bp.register_blueprint(bp_v1)

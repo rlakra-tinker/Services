@@ -13,8 +13,8 @@ The ```e-commerce``` repository contains the 'e-commerce' project.
     /
     ├── modules                     # The modules
     ├── e-commerce                  # The e-commerce Service
-    |    ├── ecommerce-iws          # The IWS Service
-    |    ├── ecommerce-ews          # The WebApp Service
+    |    ├── ecommerce              # The IWS Service
+    |    ├── estore                 # The EWS Service
     |    └── README.md
     └── README.md
 ```
@@ -37,8 +37,8 @@ Instead, you’ll focus mainly on how a ```Flask Blueprint``` can be used to imp
 
 ## Modules
 
-- [ecommerce-iws](./ecommerce-iws/README.md)
-- [ecommerce-ews](./ecommerce-ews/README.md)
+- [ecommerce-iws](./ecommerce/README.md)
+- [ecommerce-ews](./ewebapp/README.md)
 
 
 

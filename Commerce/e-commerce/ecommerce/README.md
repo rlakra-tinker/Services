@@ -12,19 +12,22 @@ The ```ecommerce``` represents an internal web service.
 ```
     /
     ├── modules                     # The name of the module
-    ├── ecommerce                   # The ecommerce-ews external module/service
-    |    ├── api                    # The API of the client
-    |    ├── blueprints             # The routes of the views
+    ├── ecommerce                   # The ecommerce-iws external module/service
+    |    ├── account                # an account’s rest service.
+    |    ├── api                    # The REST API service
+    |    ├── admin                  # an admin’s rest service.
     |    ├── models                 # contains the definition of the application’s models.
     |    ├── static                 # contains the application’s static files.
     |    |    ├── css               # css files
     |    |    ├── images            # image files
     |    |    ├── js                # JavaScript files
     |    ├── templates              # contains the application’s templates.
-    |    |    ├── views             # The HTML views/pages
+    |    |    ├── account           # The HTML views/pages of accounts
+    |    |    ├── fragments         # contains the reusable fragments of web views.
+    |    ├── __init__.py            # contains the main application logic.
+    |    ├── app.py                 # contains the web application logic.
     |    ├── config.py              # contains the application configuration parameters.
-    |    ├── models.py              # contains the definition of the application’s models.
-    |    ├── webapp              # contains the web application logic.
+    |    ├── routes.py              # contains the definition of the web’s routes.
     |    └── README.md              # The README file of ews module
     └── README.md
 ```
@@ -121,7 +124,7 @@ APP_PORT = 8081
 ## Run Flask Application
 
 ```shell
-python -m flask --app webapp run --port 8081 --debug
+$(venu)python -m flask --app ecommerce run --port 8081 --debug
 ```
 
 **Note**:- You can stop the development server by pressing ```Ctrl+C``` in your terminal.
