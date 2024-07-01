@@ -79,6 +79,11 @@ python3 -m venv venv
 
 The parenthesized (venv) in front of the prompt indicates that you’ve successfully activated the virtual environment.
 
+## Deactivate Virtual Env
+```shell
+deactivate
+```
+
 ## Upgrade ```pip``` release
 
 ```shell
@@ -131,7 +136,7 @@ APP_PORT = 8080
 ## Run Flask Application
 
 ```shell
-$(venv)python -m flask --app webapp run --port 8080 --debug
+python -m flask --app webapp run --port 8080 --debug
 ```
 
 **Note**:- You can stop the development server by pressing ```Ctrl+C``` in your terminal.

@@ -35,7 +35,7 @@ The ```ecommerce``` represents an internal web service.
 
 Although this layout is pretty straightforward, it has several drawbacks that arise as the app complexity increases. 
 For example, it will be hard for you to reuse the application logic in other projects because all the functionality is 
-bundled in ```webapp.py```. If you split this functionality into modules instead, then you could reuse complete modules 
+bundled in ```webapp/__init__.py```. If you split this functionality into modules instead, then you could reuse complete modules 
 across different projects.
 
 
@@ -71,6 +71,11 @@ python3 -m venv venv
     ```
 
 The parenthesized (venv) in front of the prompt indicates that you’ve successfully activated the virtual environment.
+
+## Deactivate Virtual Env
+```shell
+deactivate
+```
 
 ## Upgrade ```pip``` release
 
@@ -124,7 +129,7 @@ APP_PORT = 8081
 ## Run Flask Application
 
 ```shell
-$(venu)python -m flask --app ecommerce run --port 8081 --debug
+python -m flask --app webapp run --port 8081 --debug
 ```
 
 **Note**:- You can stop the development server by pressing ```Ctrl+C``` in your terminal.

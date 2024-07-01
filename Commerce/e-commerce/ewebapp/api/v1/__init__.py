@@ -2,10 +2,10 @@
 # Author: Rohtash Lakra
 #
 from flask import Blueprint
-from ecommerce.account import bp as accounts_bp
-from ecommerce.admin import bp as admin_bp
-from ecommerce.cart import bp as cart_bp
-from ecommerce.product import bp as product_bp
+from account import bp as accounts_bp
+from admin import bp as admin_bp
+from cart import bp as cart_bp
+from product import bp as product_bp
 
 
 """
