@@ -49,7 +49,7 @@ bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" "
 
 
 # accounts home page
-@bp.route("/", methods=['GET'])
+@bp.get("/")
 def index():
     """
     Services Page
@@ -58,7 +58,7 @@ def index():
 
 
 # register a new account
-@bp.route("/register")
+@bp.get("/register")
 def register():
     """
     register a new account
@@ -67,7 +67,7 @@ def register():
 
 
 # login to an account
-@bp.route("/login")
+@bp.get("/login")
 def login():
     """
     login to an account
@@ -76,7 +76,7 @@ def login():
 
 
 # view profile
-@bp.route("/profile")
+@bp.get("/profile")
 def profile():
     """
     view profile
@@ -85,7 +85,7 @@ def profile():
 
 
 # forgot-password
-@bp.route("/forgot-password")
+@bp.get("/forgot-password")
 def forgot_password():
     """
     forgot-password
@@ -94,7 +94,7 @@ def forgot_password():
 
 
 # Logout Page
-@bp.route("/logout")
+@bp.post("/logout")
 def logout():
     """
     About Us Page
