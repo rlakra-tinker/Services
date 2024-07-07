@@ -6,9 +6,22 @@
 
 {% block content %}
 {% include("_navbar_account.html") %}
-<p>
-    Create a new account.
-</p>
+<div>
+    <form>
+        <div class="text">
+            <label>Username</label>
+            <input type="email" name="email" value="">
+        </div>
+        <div class="input">
+            <label>Password</label>
+            <input type="text" name="text" value="">
+        </div>
+        <input type="submit" name="login" value="Login">
+    </form>
+    <div>
+        <a href="{{ url_for('estore.api.v1.accounts.login') }}">Login</a>
+    </div>
+</div>
 
 <br>
 

@@ -4,11 +4,27 @@
 <h2>{% block title %}Login{% endblock title %}</h2>
 {% endblock header %}
 
+
 {% block content %}
 {% include("_navbar_account.html") %}
-<p>
-    Login
-</p>
+<div>
+    <form>
+        <div class="text">
+            <label>Username</label>
+            <input type="email" name="email" value="">
+        </div>
+        <div class="input">
+            <label>Password</label>
+            <input type="text" name="text" value="">
+        </div>
+        <input type="submit" name="login" value="Login">
+    </form>
+    <div>
+        <a href="{{ url_for('estore.api.v1.accounts.forgot_password') }}">Forgot Password</a>
+        <a href="{{ url_for('estore.api.v1.accounts.register') }}">Register</a>
+    </div>
+</div>
+
 
 <br>
 

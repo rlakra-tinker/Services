@@ -6,9 +6,17 @@
 
 {% block content %}
 {% include("_navbar_account.html") %}
-<p>
-    Profile
-</p>
+<div>
+    <form>
+        <div class="input">
+            <label>Username</label>
+        </div>
+        <div class="input">
+            <label>Password</label>
+        </div>
+        <input type="submit" name="editProfile" value="Edit">
+    </form>
+</div>
 
 <br>
 
