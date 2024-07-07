@@ -1,8 +1,8 @@
-# ewebapp external web service
+# ecommerce-ews
 
 ---
 
-The ```ewebapp``` represents an external webapp service.
+The ```ecommerce-ews``` represents an external webapp service.
 
 ## Folder Structure Conventions
 

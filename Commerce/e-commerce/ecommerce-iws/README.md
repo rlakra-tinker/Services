@@ -97,6 +97,7 @@ python3 -m pip install Flask
 ## Install Requirements
 
 ```shell
+python3 -m pip install --upgrade pip
 python3 -m pip install -r requirements.txt
 ```
 
