@@ -1,15 +1,8 @@
 #
 # Author: Rohtash Lakra
 #
-from enum import Enum, auto, unique
-
-
-@unique
-class AutoName(Enum):
-
-    @staticmethod
-    def _generate_next_value_(name, start, count, last_values):
-        return name.upper()
+from enum import auto, unique
+from framework.enums import AutoName
 
 
 @unique
@@ -28,7 +21,7 @@ class HTTPMethod(AutoName):
 
 
 @unique
-class HTTPStatus(Enum):
+class HTTPStatus(AutoName):
     """
     Status Code
 
@@ -81,7 +74,6 @@ class HTTPStatus(Enum):
 
     def __str__(self):
         return f"{self.name} <{self.status_code}, {self.message}>"
-
 
 
 print()

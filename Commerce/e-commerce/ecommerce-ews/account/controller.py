@@ -2,7 +2,10 @@
 # Author: Rohtash Lakra
 # Reference - https://realpython.com/flask-blueprint/
 #
-from flask import Blueprint, render_template, make_response, jsonify
+import json
+from flask import Blueprint, render_template, make_response, jsonify, request
+from framework.utils import HTTPStatus
+from framework.entity import ErrorEntity
 
 """
 Making a Flask Blueprint:
@@ -44,8 +47,21 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/accounts")
+bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates",
+               url_prefix="/accounts")
 # bp = Blueprint("accounts", __name__, url_prefix="/accounts")
+
+# holds accounts in memory
+accounts = []
+
+
+# Returns the next ID of the account
+def _find_next_id():
+    last_id = 0
+    if not accounts and len(accounts) > 0:
+        last_id = max(account["id"] for account in accounts)
+
+    return last_id + 1
 
 
 # accounts home page
@@ -66,6 +82,18 @@ def register():
     return render_template("register.html")
 
 
+@bp.post("/register")
+def post_register():
+    print(request)
+    if request.is_json:
+        user = request.get_json()
+        user["id"] = _find_next_id()
+        accounts.append(user)
+        return user, 201
+
+    return make_response(ErrorEntity(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Invalid JSON object!"))
+
+
 # login to an account
 @bp.get("/login")
 def login():
@@ -73,6 +101,23 @@ def login():
     login to an account
     """
     return render_template("login.html")
+
+
+@bp.post("/login")
+def post_login():
+    print(request)
+    if request.is_json:
+        user = request.get_json()
+        print(f"user:{user}")
+        if not accounts:
+            for account in accounts:
+                if account['user_name'] == user.user_name:
+                        return make_response(HTTPStatus.OK, account)
+
+    response = ErrorEntity.get_error(HTTPStatus.NOT_FOUND, "Account is not registered!")
+    print(response)
+
+    return make_response(response)
 
 
 # view profile
