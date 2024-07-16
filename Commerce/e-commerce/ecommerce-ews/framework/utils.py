@@ -19,6 +19,10 @@ class HTTPMethod(AutoName):
     PATCH = auto()  # Partially update an existing resource.
     DELETE = auto()  # Delete a resource.
 
+    @staticmethod
+    def is_post(http_method: str) -> bool:
+        return http_method and HTTPMethod.POST.name == http_method.upper()
+
 
 @unique
 class HTTPStatus(AutoName):
