@@ -3,7 +3,7 @@
 #
 from flask import Blueprint
 from account.controller import bp as accounts_bp
-from admin import bp as admin_bp
+from admin.controller import bp as admin_bp
 from cart import bp as cart_bp
 from product import bp as product_bp
 

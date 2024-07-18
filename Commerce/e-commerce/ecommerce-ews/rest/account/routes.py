@@ -5,11 +5,11 @@
 # - https://flask.palletsprojects.com/en/2.3.x/tutorial/views/#require-authentication-in-other-views
 #
 import json
-from flask import Blueprint, render_template, make_response, jsonify, request, session, g
+from flask import Blueprint, render_template, make_response, jsonify, request, session, g, redirect, url_for
 from framework.utils import HTTPStatus
 from framework.entity import ErrorEntity
 from framework.utils import HTTPMethod
-from  service import AccountService
+from service import AccountService
 
 """
 Making a Flask Blueprint:
@@ -66,6 +66,7 @@ def _find_next_id():
 
     return last_id + 1
 
+
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')
@@ -108,7 +109,6 @@ def post_register():
     return make_response(ErrorEntity(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Invalid JSON object!"))
 
 
-
 @bp.post("/login")
 def login():
     print(request)
@@ -118,7 +118,7 @@ def login():
         if not accounts:
             for account in accounts:
                 if account['user_name'] == user.user_name:
-                        return make_response(HTTPStatus.OK, account)
+                    return make_response(HTTPStatus.OK, account)
 
     response = ErrorEntity.get_error(HTTPStatus.NOT_FOUND, "Account is not registered!")
     print(response)
@@ -141,4 +141,3 @@ def forgot_password():
     forgot-password
     """
     pass
-

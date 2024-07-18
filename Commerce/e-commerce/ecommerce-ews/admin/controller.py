@@ -47,9 +47,8 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates",
-               url_prefix="/accounts")
-# bp = Blueprint("accounts", __name__, url_prefix="/accounts")
+bp = Blueprint("admin", __name__, static_folder="static", static_url_path=" ", template_folder="templates",
+               url_prefix="/admin")
 
 # holds accounts in memory
 accounts = []
@@ -62,6 +61,15 @@ def _find_next_id():
         last_id = max(account["id"] for account in accounts)
 
     return last_id + 1
+
+
+# register a new account
+@bp.route("/")
+def index():
+    """
+    register a new account
+    """
+    return render_template("admin.html")
 
 
 # register a new account
@@ -138,11 +146,3 @@ def logout():
     # return render_template("index.html")
     return redirect(url_for('estore.webapp.index'))
 
-
-# accounts home page
-@bp.get("/notifications")
-def notifications():
-    """
-    Services Page
-    """
-    return render_template("notifications.html")
