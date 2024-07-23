@@ -17,6 +17,6 @@ bp = Blueprint("v1", __name__, url_prefix="/v1")
 
 # register end-points here
 bp.register_blueprint(accounts_bp)
-bp.register_blueprint(admin_bp, url_prefix="/admin")
+bp.register_blueprint(admin_bp)
 bp.register_blueprint(cart_bp)
 bp.register_blueprint(product_bp)

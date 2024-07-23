@@ -42,7 +42,7 @@ The ```ecommerce-ews``` represents an external webapp service.
 
 Although this layout is pretty straightforward, it has several drawbacks that arise as the app complexity increases. 
 For example, it will be hard for you to reuse the application logic in other projects because all the functionality is 
-bundled in ```webapp.py```. If you split this functionality into modules instead, then you could reuse complete modules 
+bundled in ```webapp/__init__.py```. If you split this functionality into modules instead, then you could reuse complete modules 
 across different projects.
 
 
@@ -104,6 +104,7 @@ python3 -m pip install Flask
 ## Install Requirements
 
 ```shell
+python3 -m pip install --upgrade pip
 python3 -m pip install -r requirements.txt
 ```
 

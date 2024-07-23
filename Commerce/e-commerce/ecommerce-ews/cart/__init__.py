@@ -4,6 +4,8 @@
 #
 from flask import Blueprint, make_response, jsonify, render_template
 
+
+
 """
 Making a Flask Blueprint:
 

@@ -1,6 +1,6 @@
 function openSideNavbar() {
     var sideNavBarElement = document.getElementById("sideNavBarDiv");
-    if(sideNavBarElement) {
+    if (sideNavBarElement) {
         sideNavBarElement.style.width = "250px";
     }
 }
@@ -8,7 +8,7 @@ function openSideNavbar() {
 /* Set the width of the side navigation to 0 */
 function closeSideNavbar() {
     var sideNavBarElement = document.getElementById("sideNavBarDiv");
-    if(sideNavBarElement) {
+    if (sideNavBarElement) {
         sideNavBarElement.style.width = "0";
     }
 }
@@ -53,6 +53,6 @@ function initMenu() {
  * On document ready
  */
 $(document).ready(function () {
-//    console.log($(this).text());
+    //    console.log($(this).text());
     initMenu();
 });

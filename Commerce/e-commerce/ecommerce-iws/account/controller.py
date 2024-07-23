@@ -2,9 +2,10 @@
 # Author: Rohtash Lakra
 # Reference - https://realpython.com/flask-blueprint/
 #
-from flask import Blueprint, make_response, jsonify, render_template
-
-
+import json
+from flask import Blueprint, render_template, make_response, jsonify, request, redirect, url_for
+from framework.utils import HTTPStatus
+from framework.entity import ErrorEntity
 
 """
 Making a Flask Blueprint:
@@ -46,32 +47,102 @@ Here are the Blueprint objects most used decorators that you may find useful:
 When you register the Flask Blueprint in an application, you extend the application with its contents.
 
 """
-# bp = Blueprint("cart", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/cart")
-bp = Blueprint("cart", __name__, url_prefix="/cart")
+bp = Blueprint("accounts", __name__, static_folder="static", static_url_path=" ", template_folder="templates",
+               url_prefix="/accounts")
+# bp = Blueprint("accounts", __name__, url_prefix="/accounts")
+
+# holds accounts in memory
+accounts = []
 
 
-# display cart
-@bp.get("/")
-def index():
+# Returns the next ID of the account
+def _find_next_id():
+    last_id = 0
+    if not accounts and len(accounts) > 0:
+        last_id = max(account["id"] for account in accounts)
+
+    return last_id + 1
+
+
+# register a new account
+@bp.get("/register")
+def register():
     """
     register a new account
     """
-    return render_template("cart/index.html")
+    return render_template("account/register.html")
 
 
-# checkout cart
-@bp.get("/checkout")
-def checkout():
+@bp.post("/register")
+def post_register():
+    print(request)
+    if request.is_json:
+        user = request.get_json()
+        user["id"] = _find_next_id()
+        accounts.append(user)
+        return user, 201
+
+    return make_response(ErrorEntity(HTTPStatus.UNSUPPORTED_MEDIA_TYPE, "Invalid JSON object!"))
+
+
+# login to an account
+@bp.get("/login")
+def login():
     """
     login to an account
     """
-    return render_template("cart/checkout.html")
+    return render_template("account/login.html")
 
 
-# checkout cart
-@bp.get("/view")
-def view():
+@bp.post("/login")
+def post_login():
+    print(request)
+    if request.is_json:
+        user = request.get_json()
+        print(f"user:{user}")
+        if not accounts:
+            for account in accounts:
+                if account['user_name'] == user.user_name:
+                    return make_response(HTTPStatus.OK, account)
+
+    response = ErrorEntity.get_error(HTTPStatus.NOT_FOUND, "Account is not registered!")
+    print(response)
+
+    return make_response(response)
+
+
+# view profile
+@bp.get("/profile")
+def profile():
     """
-    login to an account
+    view profile
     """
-    return render_template("cart/view.html")
+    return render_template("account/profile.html")
+
+
+# forgot-password
+@bp.get("/forgot-password")
+def forgot_password():
+    """
+    forgot-password
+    """
+    return render_template("account/forgot-password.html")
+
+
+# Logout Page
+@bp.post("/logout")
+def logout():
+    """
+    About Us Page
+    """
+    # return render_template("index.html")
+    return redirect(url_for('ecommerce.webapp.index'))
+
+
+# accounts home page
+@bp.get("/notifications")
+def notifications():
+    """
+    Services Page
+    """
+    return render_template("account/notifications.html")

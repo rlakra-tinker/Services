@@ -1,8 +1,8 @@
-# ecommerce Backend Service
+# ecommerce-iws
 
 ---
 
-The ```ecommerce``` represents an internal web service.
+The ```ecommerce-iws``` represents an internal web service.
 
 
 ## Folder Structure Conventions
@@ -11,24 +11,38 @@ The ```ecommerce``` represents an internal web service.
 
 ```
     /
-    ├── modules                     # The name of the module
-    ├── ecommerce                   # The ecommerce-iws external module/service
-    |    ├── account                # an account’s rest service.
-    |    ├── api                    # The REST API service
-    |    ├── admin                  # an admin’s rest service.
-    |    ├── models                 # contains the definition of the application’s models.
-    |    ├── static                 # contains the application’s static files.
-    |    |    ├── css               # css files
-    |    |    ├── images            # image files
-    |    |    ├── js                # JavaScript files
-    |    ├── templates              # contains the application’s templates.
-    |    |    ├── account           # The HTML views/pages of accounts
-    |    |    ├── fragments         # contains the reusable fragments of web views.
-    |    ├── __init__.py            # contains the main application logic.
-    |    ├── app.py                 # contains the web application logic.
-    |    ├── config.py              # contains the application configuration parameters.
-    |    ├── routes.py              # contains the definition of the web’s routes.
-    |    └── README.md              # The README file of ews module
+    ├── modules                       # The name of the module    
+    ├── ecommerce                     # The ecommerce-ews external module/service
+    |    ├── account                  # an account’s rest service.
+    |    |    ├── v1                  # contains the application’s static files.
+    |    |    |    ├── controller     # module specific css files
+    |    |    |    ├── routes         # module specific image files
+    |    |    ├── v2                  # contains the module’s templates.
+    |    |    |    ├── controller     # contains the module web views.
+    |    |    ├── __init__.py         # contains the definition of the module's routes.
+    |    ├── admin                    # an admin’s rest service.
+    |    ├── api                      # The API service
+    |    ├── cart                     # The HTML views/pages of accounts
+    |    ├── models                   # contains the definition of the application’s models.
+    |    ├── webapp                   # contains the definition of the webapp’s module.
+    |    |    ├── account             # contains the account’s templates.
+    |    |    |    ├── _navbar.html   # contains the reusable fragments of web views.
+    |    |    ├── admin               # contains the admin’s templates.
+    |    |    |    ├── _navbar.html   # contains the reusable fragments of web views.
+    |    |    ├── cart                # contains the cart’s templates.
+    |    |    |    ├── _navbar.html   # contains the reusable fragments of web views.
+    |    |    ├── static              # contains the application’s static files.
+    |    |    |    ├── css            # contains the application's css files
+    |    |    |    ├── images         # contains the application's image files
+    |    |    |    ├── js             # contains the application's JavaScript files
+    |    |    ├── templates           # contains the application’s templates.
+    |    |    |    ├── fragments      # contains the reusable fragments of web views.
+    |    |    ├── __init__.py         # contains the main application logic.
+    |    |    ├── app.py              # contains the web application logic.
+    |    |    ├── routes.py           # contains the definition of the web’s routes.
+    |    ├── __init__.py              # contains the main application logic.
+    |    ├── config.py                # contains the application configuration parameters.
+    |    └── README.md                # The README file of ews module
     └── README.md
 ```
 

@@ -47,6 +47,7 @@ When you register the Flask Blueprint in an application, you extend the applicat
 # bp = Blueprint("products", __name__, static_folder="static", static_url_path=" ", template_folder="templates", url_prefix="/products")
 bp = Blueprint("products", __name__, url_prefix="/products")
 
+
 # list of products
 @bp.route("/")
 def index():

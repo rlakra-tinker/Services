@@ -17,7 +17,7 @@ def run_app():
     """
     # localhost
     host = os.getenv("APP_HOST", "0.0.0.0")
-    port = int(os.getenv("APP_PORT", 8080))
+    port = int(os.getenv("APP_PORT", 8081))
     debug = bool(os.getenv("DEBUG_ENABLED", True))
 
     # run application with params
@@ -29,7 +29,7 @@ Main Application
 
 How to run:
 - python3 webapp.py
-- python -m flask --app webapp run --port 8080 --debug
+- python -m flask --app webapp run --port 8081 --debug
 
 """
 # App Main
