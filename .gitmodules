@@ -1,7 +1,6 @@
 [submodule "Technology/Posts"]
 	path = Technology/Posts
 	url = https://github.com/rlakra-tinker/Posts.git
-
 [submodule "Technology/WebCrawler"]
 	path = WebCrawler
 	url = https://github.com/rlakra-tinker/WebCrawler.git
